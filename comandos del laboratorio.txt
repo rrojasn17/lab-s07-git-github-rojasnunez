@@ -1,0 +1,70 @@
+PASO 1. COMPROBAR GIT
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~$ git --version
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~$ git help
+
+PASO 2. CREAR Y ABRIR LA CARPETA
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~$ mkdir lab-s07-git-github-rojas
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~$ cd lab-s07-git-github-rojas
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ touch index.html styles.css app.py
+
+PASO 3. INICIALIZAR Y REVISAR ARCHIVOS UNTRACKED
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git init
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git status -s
+?? app.py
+?? index.html
+?? styles.css
+
+PASO 4. PREPARAR INDEX.HTML
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git add index.html
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git status -s
+A  index.html
+?? app.py
+?? styles.css
+
+PASO 5. PREPARAR TODOS LOS ARCHIVOS
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git add .
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git status -s
+A  app.py
+A  index.html
+A  styles.css
+
+PASO 6. PRIMER COMMIT
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git commit -m "Primer commit del laboratorio S07"
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git log --oneline
+
+PASO 7. MODIFICAR INDEX.HTML Y CREAR EL SEGUNDO COMMIT
+Después de editar index.html:
+
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git status -s
+ M index.html
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git add index.html
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git commit -m "Actualiza contenido de la pagina principal"
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git log --oneline
+
+PASO 8. CAMBIAR LA RAMA A MAIN
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git branch -M main
+
+PASO 9. CONECTAR CON GITHUB
+Crear primero un repositorio vacío en GitHub llamado lab-s07-git-github-rojas.
+Sustituir TU_USUARIO por el usuario real de GitHub.
+
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git remote add origin https://github.com/TU_USUARIO/lab-s07-git-github-rojas.git
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git push -u origin main
+
+PASO 10. MEJORA DE ESTILOS Y SEGUNDA SINCRONIZACIÓN
+Después de editar styles.css:
+
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git status -s
+ M styles.css
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git add .
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git commit -m "Mejora estilos del laboratorio"
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git push
+reymond-e@reymond-e-ThinkPad-E14-Gen-6:~/lab-s07-git-github-rojas$ git log --oneline
+
+INTERPRETACIÓN DE GIT STATUS -S
+??  Archivo nuevo todavía no controlado por Git.
+A   Archivo agregado al staging area.
+M   Archivo modificado.
+D   Archivo eliminado.
+R   Archivo renombrado.
+C   Archivo copiado.
